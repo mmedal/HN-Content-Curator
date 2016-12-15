@@ -53,6 +53,8 @@
 			<string>Some</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>https://raw.githubusercontent.com/mmedal/HN-Content-Curator/master/UpdateManifest.plist</string>
 	<key>Website</key>
 	<string>https://github.com/mmedal/HN-Content-Curator</string>
 </dict>
