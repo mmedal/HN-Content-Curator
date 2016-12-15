@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HN Content Blocker Extension</title>
+  <script type="text/javascript">
+
+  function respondToMessage(messageEvent) {
+    if (messageEvent.name === 'requestBanned') {
+      messageEvent.target.page.dispatchMessage('responseBanned', safari.extension.settings.excludedDomains);
+    }
+  }
+
+  function respondToSettingsChange(changeEvent) {
+    if (changeEvent.key === 'excludedDomains') {
+      safari.application.activeBrowserWindow.activeTab.page.dispatchMessage('responseBanned', changeEvent.newValue);
+    }
+  }
+
+
+  safari.application.addEventListener('message', respondToMessage, false);
+  safari.extension.settings.addEventListener('change', respondToSettingsChange, false);
+
+  </script>
+</head>
+<body>
+</body>
+</html>
